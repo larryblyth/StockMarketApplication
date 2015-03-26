@@ -1,0 +1,38 @@
+<html class="no-js">
+	<head>
+		<link rel="stylesheet" href="css/style.css">
+		<title>Stock Porfolio</title>
+	</head>
+	<body>
+		<div ng-include='"templates/header.html"'></div>
+		<div ng-controller="portfolioController" lass="container demo-1">
+
+<!-- 		<div class="checkbox" ng-repeat="todo in todos">
+			<label>
+				<input type="checkbox" ng-click="tradeStock(todo._id)"> {{ todo.text }}
+			</label>
+		</div> -->
+
+
+		<div class="col-md-10" lass="container demo-1">
+      <!--Body content-->
+			<table>
+				<tr>
+					<th><h4>STOCK TICKER</h4></th>
+					<th><h4>PRICE</h4></th>
+					<th><h4>QUANTITY</h4></th>
+					<th><h4>BUY DATE</h4></th>
+<!-- 					<th><h4> Trade Now!</h4></th> -->
+				</tr>
+
+				<tr ng-repeat="position in positions">
+			      <td>{{position.stockTicker}}</td>
+			      <td>${{position.price | number:2}}</td>
+			      <td>{{position.quantity}}</td>
+			      <td>{{position.buyDate | limitTo:10}}</td>
+		      </tr>
+			</table>	
+    </div>
+
+	</body>
+</html>

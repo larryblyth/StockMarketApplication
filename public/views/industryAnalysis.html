@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		
+		<link rel="stylesheet" href="css/style.css">
+		<title>Stock Porfolio</title>
+	</head>
+	<body>
+		<div ng-include='"templates/header.html"'></div>
+		<div ng-controller="industryAnalysisController" lass="container demo-1">
+		
+			<header>
+				<h1>Stock Screener</h1>	
+			</header>
+			<div class="main clearfix">
+
+				<table id="screenTable1" class="centerTable">
+				<tr>
+					<th><h4>INDUSTRY</h4></th>
+					<th><h4>TOTAL VOLUME</h4></th>
+					<th><h4>AVG. BETA</h4></th>
+				</tr>
+
+				<tr ng-repeat="stock in stocks">
+					<td>{{stock.industry}}</td>
+					<td>{{stock.totalVolume}}</td>
+					<td>{{stock.avgBeta | number:2}}</td>
+					<!-- <td> -->
+						<!-- <button type="submit" id="trade" ng-click="buy(stock)">Buy</button>
+					</td> -->
+				</tr>
+
+					
+					<div class="nl-submit-wrap">
+						<button class="nl-submit" type="submit" ng-click="volume()">Most Popular By Volume</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html> 

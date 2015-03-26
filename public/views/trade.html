@@ -1,0 +1,55 @@
+<html class="no-js">
+<head>
+	<!--style sheets-->
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!--angular stuff-->
+  	<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+	<title>Stock Porfolio</title>
+</head>
+<body>
+	<div ng-include='"templates/header.html"'></div>
+	<div ng-controller="tradeController" lass="container demo-1">
+
+<!-- 		<div class="checkbox" ng-repeat="todo in todos">
+			<label>
+				<input type="checkbox" ng-click="tradeStock(todo._id)"> {{ todo.text }}
+			</label>
+		</div> -->
+		<div class="jumbotron text-center">
+			<h1><span class="label label-info">Search for a stock!</span></h1>  <br><input placeholder="dat symbolz" ng-model="search.symbol">
+		</div>
+
+		<div class="col-md-10" lass="container demo-1">
+			<!--Body content-->
+			<table id="stockTable" class="centerTable">
+				<tr>
+					<th><h4>STOCK TICKER</h4></th>
+					<th><h4>PRICE</h4></th>
+					<th><h4>DAILY HIGH</h4></th>
+					<th><h4>DAILY LOW </h4></th>
+					<th><h4>QUANTITY</h4></th>
+					<th><h4>% G/L REALTIME</h4></th>
+					<th><h4>$ P/E Ratio</h4></th>
+					<th><h4> Trade Now!</h4></th>
+				</tr>
+
+				<tr ng-animate="animate" ng-repeat="stock in stocks | filter:search">
+					<td>{{stock.symbol}}</td>
+					<td>${{stock.lastTradePriceOnly}}</td>
+					<td>${{stock.daysHigh }}</td>
+					<td>${{stock.daysLow}}</td>
+					<td>{{stock.volume}}</td>
+					<td>{{stock.changePercentRealtime * 100 | number : 2 }}%</td>
+					<td>${{stock.peRatio | number:2}}</td>
+					<!-- <td>{{stock.industry}}</td> -->
+					<td>
+						<button type="submit" id="trade" ng-click="buy(stock)">Buy</button>
+					</td>
+				</tr>
+			</table>	
+		</div>
+
+	</body>
+	</html>

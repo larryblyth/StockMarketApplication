@@ -1,0 +1,54 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en" ng-app="stocktool">
+  <head>
+
+    <!--Meta Tags --> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name='keywords' content='stock, tool, trading, gainz, yahoo'/>
+    <meta name='author' content='Morgan Moskalyk'/>
+    <meta name='description' content='execute trade stocks'/>
+
+    <meta property='og:url' content='http://sssfeed.parseapp.com/#/'/>
+    <meta property='og:title' content="SSS Feed Reader"/>
+    <meta property='og:description' content="Trade stocks to make lots of money!"/>
+
+    
+    <!-- load angular and angular route via CDN -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js?v=2.1.2"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+
+
+
+<!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<!-- Our Website CSS Styles -->
+<link rel="stylesheet" href="css/style.css">
+    
+    <!-- Basic Angular App -->
+    <script src="app.js"></script>
+   
+    <!-- Controllers -->
+    <script src="controllers/accountController.js"></script>
+    <script src="controllers/loginController.js"></script>
+    <script src="controllers/tradeController.js"></script>
+    <script src="controllers/industryAnalysisController.js"></script>
+    <script src="controllers/portfolioController.js"></script>
+    <script src="controllers/transactionsController.js"></script>
+    <script src="controllers/stockScreenerController.js"></script>
+
+  </head>
+  <body ng-controller="mainController">
+    <!-- agnular injection -->
+    <div ng-view class="view-container"></div>
+  </body>
+
+
+</html>

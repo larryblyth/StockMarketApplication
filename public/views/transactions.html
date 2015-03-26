@@ -1,0 +1,39 @@
+<html class="no-js">
+	<head>
+		<link rel="stylesheet" href="css/style.css">
+		<title>Transactions</title>
+	</head>
+	<body>
+		<div ng-include='"templates/header.html"'></div>
+		<div ng-controller="transactionsController" lass="container demo-1">
+
+<!-- 		<div class="checkbox" ng-repeat="todo in todos">
+			<label>
+				<input type="checkbox" ng-click="tradeStock(todo._id)"> {{ todo.text }}
+			</label>
+		</div> -->
+
+
+		<div class="col-md-10" lass="container demo-1">
+      <!--Body content-->
+			<table>
+				<tr>
+					<th><h4>Tranasction ID</h4></th>
+					<th><h4>STOCK TICKER</h4></th>
+					<th><h4>PRICE</h4></th>
+					<th><h4>QUANTITY</h4></th>
+					<th><h4>DATE</h4></th>
+				</tr>
+
+				<tr ng-repeat="transaction in transactions">
+			      <td>{{transaction.transactionID}}</td>
+			      <td>{{transaction.stockTicker}}</td>
+			      <td>${{transaction.price |number:2}}</td>
+			      <td>{{transaction.quantity }}</td>
+			      <td>{{transaction.dateTimeOfTransaction | limitTo: 10}}</td>
+		      </tr>
+			</table>	
+    </div>
+
+	</body>
+</html>

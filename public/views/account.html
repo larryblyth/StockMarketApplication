@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<link rel="stylesheet" href="css/style.css">
+		<title>Account Info</title>
+	</head>
+	<body>
+		 <div ng-include='"templates/header.html"'></div>
+		<div ng-controller="accountController" lass="container demo-1">
+			<ul class="grid cs-style-4">
+				<h1>WELCOME, <span ng-bind='firstName'></span></h1>
+				<hr>
+				<!-- USER -->
+				<figure id="user" >
+					<figcaption>
+					<h3>ACCOUNT ID:</h3><h4>{{accountID}}</h4>
+					<h3>EMAIL: <h4><h4>{{email}}</h4>
+					<h3>ADDRESS: <h4><h4>{{address}}</h4>
+					<h3>ACCOUNT BALANCE:</h3><h4>${{accountBalance|number:2}}</h4>
+					</figcaption>
+				</figure>
+			</ul>
+		</div>
+	</body>
+</html>

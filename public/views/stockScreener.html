@@ -1,0 +1,65 @@
+<html class="no-js">
+<head>
+	<!--style sheets-->
+	<link rel="stylesheet" href="css/style.css">
+
+
+	<!--angular stuff-->
+  	<!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> -->
+	<title>Stock Porfolio</title>
+</head>
+<body>
+	<div ng-include='"templates/header.html"'></div>
+	<div ng-controller="stockScreenerController" lass="container demo-1">
+
+<!-- 		<div class="checkbox" ng-repeat="todo in todos">
+			<label>
+				<input type="checkbox" ng-click="tradeStock(todo._id)"> {{ todo.text }}
+			</label>
+		</div> -->
+		<div class="jumbotron text-center">
+			<h1><span class="label label-info">Search for a stock!</span></h1> <br><input placeholder="dat symbolz" ng-model="search.stockTicker">
+		</div>
+
+		<div class="col-md-10" lass="container demo-1">
+			<!--Body content-->
+			<table id="stockTable" class="centerTable">
+				<!--Inputs for search!-->
+				<form>				
+					<tr>				
+						<!-- <th rowspan="2"><h5>EXCHANGE NAME: <input type="text" ng-model="exchange"></h5></th> -->
+						<!-- <th rowspan="2"><h5>INDUSTRY: <input type="text" ng-model="industry"></h5></th> -->
+						<th><h5>P/E MAX: <input type="text" ng-model="betamax"></h5></th>						
+						<th><h5>QUANTITY MAX: <input type="text" ng-model="quantitymax"></h5></th>
+						<th rowspan="2"><button type="search" id="query" ng-click="query(betamin,quantitymin,betamax,quantitymax)">Search!</button></th>	
+				
+					</tr>
+					<tr>
+						<th><h5>P/E MIN: <input type="text" ng-model="betamin"></h5></th>	
+						<th><h5>QUANTITY MIN: <input type="text" ng-model="quantitymin"></h5></th>									
+					</tr>
+				</form>				
+				<tr>
+					<th><h4>STOCK TICKER</h4></th>
+					<th><h4>PRICE</h4></th>
+					<th><h4>DAILY HIGH</h4></th>
+					<th><h4>DAILY LOW </h4></th>
+					<th><h4>QUANTITY</h4></th>
+					<th><h4>50 DAY AVG.</h4></th>
+					<th><h4>P/E</h4></th>
+				</tr>
+
+				<tr ng-animate="animate" ng-repeat="stock in stocks | filter:search">
+					<td>{{stock.stockTicker}}</td>
+					<td>${{stock.price}}</td>
+					<td>${{stock.dayHigh }}</td>
+					<td>${{stock.dayLow}}</td>
+					<td>{{stock.quantity}}</td>
+					<td>%{{stock.fiftyDayMAvg*100 | number:2}}</td>
+					<td>{{stock.beta | number:2}}</td>
+				</tr>
+			</table>	
+		</div>
+	</div>
+</body>
+</html>
